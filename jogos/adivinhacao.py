@@ -1,10 +1,12 @@
 import random
 
-def jogar():
+def imprimir_mensagem_abertura():
     print("*********************************")
     print("Bem-vindo ao jogo de Adivinhação!")
     print("*********************************")
 
+def jogar():
+    imprimir_mensagem_abertura()
     numero_secreto = random.randrange(1, 101)
     total_de_tentativas = 0
     pontos = 1000
