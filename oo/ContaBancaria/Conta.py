@@ -61,4 +61,3 @@ class Conta:
     @staticmethod
     def codigos_bancos():
         return {'Banco Brasil' : '001', 'Caixa' : '104', 'Bradesco' : '237', 'Safra' : '101'}
-
