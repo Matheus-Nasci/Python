@@ -5,9 +5,8 @@ class Programa:
         self._ano = ano
         self._likes = 0
 
-    @staticmethod
     def dar_like(self):
-        self.__likes += 1
+        self._likes += 1
 
     @property
     def nome(self):
@@ -25,6 +24,9 @@ class Programa:
     def nome(self, nome):
         self._nome = nome.title()
 
+    def __str__(self):
+        return f"{self._nome} - {self._ano} - {self._likes} - Likes"
+
 
 class Filme(Programa):
 
@@ -35,6 +37,9 @@ class Filme(Programa):
     @property
     def duracao(self):
         return self._duracao
+
+    def __str__(self):
+        return f"{self._nome} - {self._ano} - {self._duracao} Min - {self._likes} - Likes"
 
 
 class Serie(Programa):
@@ -47,21 +52,45 @@ class Serie(Programa):
     def temporada(self):
         return self._temporada
 
+    def __str__(self):
+        return f"{self._nome} - {self._ano} - {self._temporada} temporadas - {self._likes} - Likes"
+
+
+class Playlist:
+    def __init__(self, nome, programas):
+        self.nome = nome
+        self._programas = programas
+
+    def __getitem__(self, item):
+        return self._programas[item]
+
+    @property
+    def listagem(self):
+        return self._programas
+
+    def __len__(self):
+        return len(self._programas)
+
 
 ##TESTE CLASSES
-filme1 = Filme("homem aranha 3", 2012, 160)
-mostrar_filme = (
-    "Filme: {} \nLançamento: {} \nDuração: {} \nGostei: {}\n".format(filme1.nome, filme1.ano, filme1.duracao,
-                                                                     filme1.likes))
+filme1 = Filme("homem aranha 3", 2012, 80)
+filme2 = Filme("sherek", 2001, 100)
+filme1.dar_like()
+filme2.dar_like()
+filme2.dar_like()
+
 serie1 = Serie("Brooklin 99", 2020, 8)
-mostrar_serie = (
-    "Série: {} \nLançamento: {} \nTemporadas: {} \nGostei: {}\n".format(serie1.nome, serie1.ano, serie1.temporada,
-                                                                        serie1.likes))
-print(mostrar_filme)
-print(mostrar_serie)
+serie2 = Serie("Demolidor", 2016, 2)
+serie2.dar_like()
+serie2.dar_like()
+serie1.dar_like()
+serie1.dar_like()
 
-filmes_e_series = [filme1, serie1]
+filmes_e_series = [filme1, serie1, serie2, filme2]
+playlist_fim_de_semana = Playlist("Fim de Semana", filmes_e_series)
 
-for programa in filmes_e_series:
-    detalhes = programa.duracao if hasattr(programa, 'duracao') else programa.temporada
-    print(f'{programa.nome} - {detalhes} - {programa.likes}')
+print(f"Tamanho Playlist: {len(playlist_fim_de_semana)}")
+
+for programa in playlist_fim_de_semana:
+    print(programa)
+
