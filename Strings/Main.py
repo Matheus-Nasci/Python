@@ -2,14 +2,6 @@ url = "http://bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&quantidade
 tamanho_url = len(url)
 print(f"URL: {url} Total Caracter: {tamanho_url}")
 
-#Sanitização da URL
-#url = url.replace(" ", "")
-url.strip()
-
-# VALIDANDO URL
-if url == "":
-    raise ValueError("A URL está vázia.")
-
 # SEPARA BASE E OS PARAMETROS
 indice_interrogacao = url.find("?")
 url_base = url[:indice_interrogacao]
