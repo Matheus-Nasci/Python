@@ -12,4 +12,3 @@ class MinhaListagem(Sized):
 
 lista = MinhaListagem("Nova_lista")
 print(lista)
-c 
