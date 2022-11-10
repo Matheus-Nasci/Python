@@ -1,4 +1,5 @@
 # Importar o módulo
+import re
 import json
 
 # String em formato JSON
@@ -20,16 +21,16 @@ data_convert_str = json.loads(data_JSON)
 
 parametro = "name"
 
-#def buscar_valor():
-#    tamanho_parametro = len(parametro)
-#    indice_parametro = data_convert_str.find(parametro)
-#    indice_valor = indice_parametro + tamanho_parametro
-#    return indice_valor
+def buscar_valor():
+    tamanho_parametro = len(parametro)
+    indice_parametro = data_convert_str.find(parametro)
+    indice_valor = indice_parametro + tamanho_parametro
+    return indice_valor
 
 # def get_parametros(self):
 #    index_valor_parametro = data_convert_str.find(parametro)
 #    index_valor = index_valor_parametro + len(parametro) + 2
 #    return index_valor
 
-
-print(data_convert_str.find("name"))
+seila = buscar_valor()
+print(seila.find())
