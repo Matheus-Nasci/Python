@@ -1,3 +1,4 @@
+
 # String em formato JSON
 data_JSON = """
 {
@@ -5,9 +6,9 @@ data_JSON = """
 	"price": 15.67,
 	"toppings": ["Mushrooms", "Extra Cheese", "Pepperoni", "Basil"],
 	"client": {
-		"name": "Jane Doe",
-		"phone": "455-344-234",
-		"email": "janedoe@email.com"
+		"name": "Andrey Rodrigues",
+		"phone": "11 92344-2234",
+		"email": "andrey@email.com",
 	}
 }
 """
@@ -25,7 +26,7 @@ class ExtratorDado:
 
     def get_valor(self):
         indice_virgula = data_JSON.find(",", self.get_parametro()) - 1
-        return data_JSON[self.get_parametro(): indice_virgula]
+        return data_JSON[self.get_parametro() : indice_virgula]
 
 
 # TESTE
